@@ -1,2 +1,5 @@
 # salamander_robot
- Simulácia chôze salamandry
+ Simulácia chôzde salamandry. 
+ Vyhýbanie sa objektom.
+ 
+ 

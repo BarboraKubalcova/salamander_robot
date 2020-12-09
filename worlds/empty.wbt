@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.19014880438494688 -0.9388613026952695 -0.2870241914757651 4.306345990725977
-  position 5.630111568800898 3.232950108727798 -1.2696625943046442
+  orientation -0.8837938533556415 -0.4019807011378898 -0.2394158321487475 0.8581674891463472
+  position -0.08816121509884711 0.8392514769474725 0.8274183602710883
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -23,6 +23,14 @@ RectangleArena {
   }
   wallAppearance BrushedAluminium {
     textureTransform TextureTransform {
+    }
+  }
+}
+TinkerbotsBase {
+  translation 0 0.03 0
+  upSlot TinkerbotsPivot {
+    rotation 0 0 1 1.5707996938995747
+    slot TinkerbotsMotor {
     }
   }
 }

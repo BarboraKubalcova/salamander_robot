@@ -25,12 +25,12 @@ TIME_STEP = 64;
 %wb_motor_set_position(pivot_1, 0.5);
 motor_front = wb_robot_get_device('motor_front');
 wb_motor_set_position(motor_front, inf);
-wb_motor_set_velocity(motor_front, -5);
+wb_motor_set_velocity(motor_front, 4);
 
 motor_back = wb_robot_get_device('motor_back');
 wb_motor_set_position(motor_back, inf);
-wb_motor_set_velocity(motor_back, -5);
-%
+wb_motor_set_velocity(motor_back, 4);
+% hello there
 while wb_robot_step(TIME_STEP) ~= -1
 
   

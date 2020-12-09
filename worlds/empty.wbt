@@ -3,13 +3,26 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.7 0.7 0.2 0.75
-  position 1.2 1.6 2.3
-
+  orientation 0.19014880438494688 -0.9388613026952695 -0.2870241914757651 4.306345990725977
+  position 5.630111568800898 3.232950108727798 -1.2696625943046442
 }
 TexturedBackground {
+  texture "noon_park_empty"
 }
 TexturedBackgroundLight {
+  texture "noon_park_empty"
 }
 RectangleArena {
+  floorSize 3 3
+  floorAppearance Appearance {
+    texture ImageTexture {
+      url [
+        "textures/grass.jpg"
+      ]
+    }
+  }
+  wallAppearance BrushedAluminium {
+    textureTransform TextureTransform {
+    }
+  }
 }

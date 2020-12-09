@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.8837938533556415 -0.4019807011378898 -0.2394158321487475 0.8581674891463472
-  position -0.08816121509884711 0.8392514769474725 0.8274183602710883
+  orientation -0.5539708396698554 -0.7953120628912098 -0.2461605805469336 1.2411105335492196
+  position -0.6481755835695449 0.7461091019796787 0.67355232493071
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -28,9 +28,50 @@ RectangleArena {
 }
 TinkerbotsBase {
   translation 0 0.03 0
+  controller "salamandraControl"
   upSlot TinkerbotsPivot {
     rotation 0 0 1 1.5707996938995747
+    name "1"
     slot TinkerbotsMotor {
+      name "motor_front"
+      upSlot TinkerbotsPivot {
+        name "2"
+        slot TinkerbotsPivot {
+          name "3"
+          slot TinkerbotsPivot {
+            name "4"
+            slot TinkerbotsMotor {
+              name "motor_back"
+              upSlot TinkerbotsPivot {
+                name "5"
+                slot TinkerbotsPivot {
+                  name "6"
+                  ASlot TinkerbotsCubieTriangle {
+                    rotation 0 0 1 3.141592653589793
+                  }
+                  BSlot TinkerbotsCubieTriangle {
+                    rotation 0 0 1 1.5707996938995747
+                  }
+                  CSlot TinkerbotsCubieTriangle {
+                    rotation 0 0 1 3.141592653589793
+                  }
+                  DSlot TinkerbotsCubieTriangle {
+                    rotation 0 0 1 1.5707996938995747
+                  }
+                }
+              }
+              frontSlot TinkerbotsFinger {
+              }
+              backSlot TinkerbotsFinger {
+              }
+            }
+          }
+        }
+      }
+      frontSlot TinkerbotsFinger {
+      }
+      backSlot TinkerbotsFinger {
+      }
     }
   }
 }

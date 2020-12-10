@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.16162898905892154 -0.9814104872223196 -0.10348683716222067 1.6320416183953759
-  position -0.8838712031686455 0.34178017800787436 0.06859508592178981
+  orientation -0.26267526717134104 0.93882099787049 0.2227483736729003 1.0891374175472754
+  position 3.2560838924624105 1.483045455745553 2.0586322478423833
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -13,6 +13,7 @@ TexturedBackgroundLight {
   texture "noon_park_empty"
 }
 RectangleArena {
+  translation 0 0 -0.12
   floorSize 3 3
   floorAppearance Appearance {
     texture ImageTexture {
@@ -27,7 +28,7 @@ RectangleArena {
   }
 }
 TinkerbotsBase {
-  translation 0 0.03 0
+  translation 0 0.03 0.66
   rotation 0 0 1 3.14
   controller "salamandraControl"
   upSlot TinkerbotsPivot {
@@ -91,4 +92,21 @@ TinkerbotsBase {
       name "ds"
     }
   ]
+}
+Rock10cm {
+  translation 0.25 0.05 -0.49
+}
+Rock17cm {
+  translation -0.79 0 0
+  rotation 0 1 0 -2.6179996938995744
+}
+Rock17cm {
+  translation 0.277781 0 0.346996
+  rotation 0 1 0 0.6544996938995746
+  name "rock 17 cm(1)"
+}
+Rock17cm {
+  translation -0.192865 0 -0.21749
+  rotation 0 1 0 1.8325996938995748
+  name "rock 17 cm(2)"
 }

@@ -23,18 +23,26 @@ TIME_STEP = 64;
 
 %pivot_1 = wb_robot_get_device('1'); %pivot front
 %wb_motor_set_position(pivot_1, 0.5);
+p1 = wb_robot_get_device('1');
+p2 = wb_robot_get_device('2');
+p3 = wb_robot_get_device('3');
+p4 = wb_robot_get_device('4');
+p5 = wb_robot_get_device('5');
+p6 = wb_robot_get_device('6');
+%cez for to proste nejak neslo... tak ideme na istotu :D 
+
 motor_front = wb_robot_get_device('motor_front');
 wb_motor_set_position(motor_front, inf);
-wb_motor_set_velocity(motor_front, 4);
+wb_motor_set_velocity(motor_front, 1);
 
 motor_back = wb_robot_get_device('motor_back');
 wb_motor_set_position(motor_back, inf);
-wb_motor_set_velocity(motor_back, 4);
+wb_motor_set_velocity(motor_back, 1);
 % hello there
 % general kenobi
 while wb_robot_step(TIME_STEP) ~= -1
 
-  
+  time = wb_robot_get_time();
  
   % read the sensors, e.g.:
   %  rgb = wb_camera_get_image(camera);

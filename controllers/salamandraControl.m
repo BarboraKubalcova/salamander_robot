@@ -33,17 +33,24 @@ p6 = wb_robot_get_device('6');
 
 motor_front = wb_robot_get_device('motor_front');
 wb_motor_set_position(motor_front, inf);
-wb_motor_set_velocity(motor_front, 1);
+wb_motor_set_velocity(motor_front, -1.1);
 
 motor_back = wb_robot_get_device('motor_back');
 wb_motor_set_position(motor_back, inf);
-wb_motor_set_velocity(motor_back, 1);
-% hello there
-% general kenobi
+wb_motor_set_velocity(motor_back, -1.1);
+%-2 je taka idealna rychlost / zaporne aby sla dopredu
+
+
 while wb_robot_step(TIME_STEP) ~= -1
 
   time = wb_robot_get_time();
- 
+  wb_motor_set_position(p1, sin(time+7)/2);
+  wb_motor_set_position(p2, sin(time+5)/2);
+  wb_motor_set_position(p3, sin(time+4)/2);
+  wb_motor_set_position(p4, sin(time+3)/2);
+  wb_motor_set_position(p5, sin(time+1)/2);
+  wb_motor_set_position(p6, sin(time)/2);
+  
   % read the sensors, e.g.:
   %  rgb = wb_camera_get_image(camera);
 

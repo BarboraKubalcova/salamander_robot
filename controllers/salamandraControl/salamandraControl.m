@@ -33,13 +33,13 @@ p6 = wb_robot_get_device('6');
 
 motor_front = wb_robot_get_device('motor_front');
 wb_motor_set_position(motor_front, inf);
-wb_motor_set_velocity(motor_front, -1.1);
+wb_motor_set_velocity(motor_front, 1.3);
 
 motor_back = wb_robot_get_device('motor_back');
 wb_motor_set_position(motor_back, inf);
-wb_motor_set_velocity(motor_back, -1.1);
-%-2 je taka idealna rychlost / zaporne aby sla dopredu
+wb_motor_set_velocity(motor_back, 1.3);
 
+wb_robot_get_device('ds');
 
 while wb_robot_step(TIME_STEP) ~= -1
 

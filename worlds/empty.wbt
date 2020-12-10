@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.3287359424636365 -0.8990052684347126 -0.2893479003883986 4.996439510302671
-  position 0.5830446824432279 0.4170752147083092 0.37668722922774345
+  orientation -0.16162898905892154 -0.9814104872223196 -0.10348683716222067 1.6320416183953759
+  position -0.8838712031686455 0.34178017800787436 0.06859508592178981
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -28,6 +28,7 @@ RectangleArena {
 }
 TinkerbotsBase {
   translation 0 0.03 0
+  rotation 0 0 1 3.14
   controller "salamandraControl"
   upSlot TinkerbotsPivot {
     rotation 0 0 1 1.5707996938995747
@@ -84,4 +85,10 @@ TinkerbotsBase {
       }
     }
   }
+  extensionSlot [
+    DistanceSensor {
+      rotation 0 -1 0 -1.5707953071795862
+      name "ds"
+    }
+  ]
 }

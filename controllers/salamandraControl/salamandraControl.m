@@ -45,29 +45,30 @@ wb_distance_sensor_enable(dist, TIME_STEP);
 while wb_robot_step(TIME_STEP) ~= -1
 
   time = wb_robot_get_time();
+  
+  
+  
+  distance = wb_distance_sensor_get_value(dist);
+  
+  if distance < 500
+    wb_motor_set_velocity(motor_front, 0);
+    wb_motor_set_velocity(motor_back, 0);
+    
+  wb_motor_set_position(p2, sin(1.5));
+  wb_motor_set_position(p2, sin(1.5));
+  wb_motor_set_position(p3, sin(1.5));
+  wb_motor_set_position(p4, sin(1.5));
+  wb_motor_set_position(p5, sin(1.5));
+  wb_motor_set_position(p6, sin(1.5));
+  
+  else
   wb_motor_set_position(p1, sin(time+7)/2);
   wb_motor_set_position(p2, sin(time+5)/2);
   wb_motor_set_position(p3, sin(time+4)/2);
   wb_motor_set_position(p4, sin(time+3)/2);
   wb_motor_set_position(p5, sin(time+1)/2);
   wb_motor_set_position(p6, sin(time)/2);
-  
-  
-  distance = wb_distance_sensor_get_value(dist);
-  disp(distance);
-  if distance < 500
-    wb_motor_set_velocity(motor_front, 0);
-    wb_motor_set_velocity(motor_back, 0);
-    
-  wb_motor_set_position(p1, 0);
-  wb_motor_set_position(p2, 0);
-  wb_motor_set_position(p3, 0);
-  wb_motor_set_position(p4, 0);
-  wb_motor_set_position(p5, 0);
-  wb_motor_set_position(p6, 0);
   end
- 
-  
   
   % read the sensors, e.g.:
   %  rgb = wb_camera_get_image(camera);

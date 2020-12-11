@@ -1,8 +1,8 @@
 % MATLAB controller for Webots
 % File:          salamandraControl.m
-% Date:
+% Date:           
 % Description:
-% Author:
+% Author:  Barbora Kubalcova
 % Modifications:
 
 % uncomment the next two lines if you want to use
@@ -10,7 +10,8 @@
 %desktop;
 %keyboard;
 
-TIME_STEP = 64;
+TIME_STEP = 32;
+
 
 % get and enable devices, e.g.:
 %  camera = wb_robot_get_device('camera');
@@ -21,8 +22,7 @@ TIME_STEP = 64;
 % perform simulation steps of TIME_STEP milliseconds
 % and leave the loop when Webots signals the termination
 
-%pivot_1 = wb_robot_get_device('1'); %pivot front
-%wb_motor_set_position(pivot_1, 0.5);
+
 p1 = wb_robot_get_device('1');
 p2 = wb_robot_get_device('2');
 p3 = wb_robot_get_device('3');
@@ -42,33 +42,33 @@ wb_motor_set_velocity(motor_back, 1.5);
 dist = wb_robot_get_device('ds');
 wb_distance_sensor_enable(dist, TIME_STEP);
 
-while wb_robot_step(TIME_STEP) ~= -1
 
+
+while wb_robot_step(TIME_STEP) ~= -1
   time = wb_robot_get_time();
-  
-  
-  
   distance = wb_distance_sensor_get_value(dist);
-  
+ 
+
+ 
   if distance < 500
-    wb_motor_set_velocity(motor_front, 0);
-    wb_motor_set_velocity(motor_back, 0);
-    
-  wb_motor_set_position(p2, sin(1.5));
-  wb_motor_set_position(p2, sin(1.5));
-  wb_motor_set_position(p3, sin(1.5));
-  wb_motor_set_position(p4, sin(1.5));
-  wb_motor_set_position(p5, sin(1.5));
-  wb_motor_set_position(p6, sin(1.5));
-  
+    wb_motor_set_position(p2, sin(0.5));
+    wb_motor_set_position(p2, sin(0.5));
+    wb_motor_set_position(p3, sin(0.5));
+    wb_motor_set_position(p4, sin(0.5));
+    wb_motor_set_position(p5, sin(0.5));
+    wb_motor_set_position(p6, sin(0.5));
+    wb_motor_set_velocity(motor_back, 10);
+    wb_motor_set_velocity(motor_front, 10);
   else
-  wb_motor_set_position(p1, sin(time+7)/2);
-  wb_motor_set_position(p2, sin(time+5)/2);
-  wb_motor_set_position(p3, sin(time+4)/2);
-  wb_motor_set_position(p4, sin(time+3)/2);
-  wb_motor_set_position(p5, sin(time+1)/2);
-  wb_motor_set_position(p6, sin(time)/2);
-  end
+    wb_motor_set_position(p1, sin(time)/2);
+    wb_motor_set_position(p2, sin(time-3)/2);
+    wb_motor_set_position(p3, sin(time-4)/2);
+    wb_motor_set_position(p4, sin(time-5)/2);
+    wb_motor_set_position(p5, sin(time-7)/2);
+    wb_motor_set_position(p6, sin(time-8)/2);
+    wb_motor_set_velocity(motor_back, 1.5);
+    wb_motor_set_velocity(motor_front, 1.5);
+ end
   
   % read the sensors, e.g.:
   %  rgb = wb_camera_get_image(camera);

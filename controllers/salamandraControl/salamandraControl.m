@@ -10,7 +10,7 @@
 %desktop;
 %keyboard;
 
-TIME_STEP = 32;
+TIME_STEP = 20;
 
 
 % get and enable devices, e.g.:
@@ -22,14 +22,10 @@ TIME_STEP = 32;
 % perform simulation steps of TIME_STEP milliseconds
 % and leave the loop when Webots signals the termination
 
+for i = 1:6
+  p(i) = wb_robot_get_device(num2str(i));
+end 
 
-p1 = wb_robot_get_device('1');
-p2 = wb_robot_get_device('2');
-p3 = wb_robot_get_device('3');
-p4 = wb_robot_get_device('4');
-p5 = wb_robot_get_device('5');
-p6 = wb_robot_get_device('6');
-%cez for to proste nejak neslo... tak ideme na istotu :D 
 
 motor_front = wb_robot_get_device('motor_front');
 wb_motor_set_position(motor_front, inf);
@@ -51,21 +47,18 @@ while wb_robot_step(TIME_STEP) ~= -1
 
  
   if distance < 500
-    wb_motor_set_position(p2, sin(0.5));
-    wb_motor_set_position(p2, sin(0.5));
-    wb_motor_set_position(p3, sin(0.5));
-    wb_motor_set_position(p4, sin(0.5));
-    wb_motor_set_position(p5, sin(0.5));
-    wb_motor_set_position(p6, sin(0.5));
+
+   for i = 1:6
+     
+     wb_motor_set_position(p(i), sin(0.5));
+   end
     wb_motor_set_velocity(motor_back, 10);
-    wb_motor_set_velocity(motor_front, 10);
+   wb_motor_set_velocity(motor_front, 10);
   else
-    wb_motor_set_position(p1, sin(time)/2);
-    wb_motor_set_position(p2, sin(time-3)/2);
-    wb_motor_set_position(p3, sin(time-4)/2);
-    wb_motor_set_position(p4, sin(time-5)/2);
-    wb_motor_set_position(p5, sin(time-7)/2);
-    wb_motor_set_position(p6, sin(time-8)/2);
+
+    for i = 1:6
+     wb_motor_set_position(p(i), sin(time-i)/2);
+     end
     wb_motor_set_velocity(motor_back, 1.5);
     wb_motor_set_velocity(motor_front, 1.5);
  end

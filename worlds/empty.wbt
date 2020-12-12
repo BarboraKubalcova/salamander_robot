@@ -1,10 +1,11 @@
 #VRML_SIM R2020b utf8
 WorldInfo {
+  basicTimeStep 20
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.514094696254225 -0.8447899728977467 -0.14844711170885325 0.9652500836647444
-  position -3.469109483149684 2.550397191718904 2.7341397027993426
+  orientation -0.013562525296555052 0.9887117364292821 0.14921514720219936 2.5008487634501324
+  position 0.7652281500537406 0.4171634254975217 -1.0648490255616183
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -28,7 +29,7 @@ RectangleArena {
   }
 }
 TinkerbotsBase {
-  translation -0.17 0.0302705 0.22
+  translation -0.34 0.0305409 0.31
   rotation 0 0 1 3.14
   controller "salamandraControl"
   upSlot TinkerbotsPivot {
@@ -88,9 +89,14 @@ TinkerbotsBase {
   }
   extensionSlot [
     DistanceSensor {
+      translation 0 0 -0.01
+      rotation 0 1 0 2.0944
+      name "ds_right"
+    }
+    DistanceSensor {
       translation 2.03924e-08 0 -0.02
-      rotation 0 -1 0 -1.5707953071795862
-      name "ds"
+      rotation 0 1 0 0.785394
+      name "ds_left"
     }
   ]
 }
@@ -112,6 +118,7 @@ Rock17cm {
   name "rock 17 cm(2)"
 }
 SimpleTree {
+  translation 0.3 0 0
   rotation 0 1 0 0.6544996938995746
   height 1.5
   radius 1

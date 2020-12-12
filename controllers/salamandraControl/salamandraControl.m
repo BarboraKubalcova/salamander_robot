@@ -10,7 +10,7 @@
 %desktop;
 %keyboard;
 
-TIME_STEP = 20;
+TIME_STEP = 10;
 
 
 % get and enable devices, e.g.:
@@ -35,33 +35,45 @@ motor_back = wb_robot_get_device('motor_back');
 wb_motor_set_position(motor_back, inf);
 wb_motor_set_velocity(motor_back, 1.5);
 
-dist = wb_robot_get_device('ds');
-wb_distance_sensor_enable(dist, TIME_STEP);
+dist_left = wb_robot_get_device('ds_left');
+wb_distance_sensor_enable(dist_left, TIME_STEP);
 
+dist_right = wb_robot_get_device('ds_right');
+wb_distance_sensor_enable(dist_right, TIME_STEP);
 
 
 while wb_robot_step(TIME_STEP) ~= -1
   time = wb_robot_get_time();
-  distance = wb_distance_sensor_get_value(dist);
+  distance_left = wb_distance_sensor_get_value(dist_left);
+  distance_right = wb_distance_sensor_get_value(dist_right);
  
 
  
-  if distance < 500
-
-   for i = 1:6
-     
-     wb_motor_set_position(p(i), sin(0.5));
-   end
-    wb_motor_set_velocity(motor_back, 10);
-   wb_motor_set_velocity(motor_front, 10);
-  else
-
-    for i = 1:6
-     wb_motor_set_position(p(i), sin(time-i)/2);
+  if distance_left < 500 && distance_left < distance_right
+     for i = 1:6
+       wb_motor_set_position(p(i), sin(-0.5));
      end
-    wb_motor_set_velocity(motor_back, 1.5);
-    wb_motor_set_velocity(motor_front, 1.5);
- end
+     disp("L");
+       wb_motor_set_velocity(motor_back, 3);
+       wb_motor_set_velocity(motor_front, 3);
+       
+  elseif distance_right < 500 && distance_right < distance_left
+     for i = 1:6
+       wb_motor_set_position(p(i), sin(0.5));
+      end
+      disp("R");
+       wb_motor_set_velocity(motor_back, 3);
+       wb_motor_set_velocity(motor_front, 3);
+  else
+      
+      for i = 1:6
+       
+       wb_motor_set_position(p(i), sin(time-i)/2);
+      
+      end
+       wb_motor_set_velocity(motor_back, 1.5);
+       wb_motor_set_velocity(motor_front, 1.5);
+   end
   
   % read the sensors, e.g.:
   %  rgb = wb_camera_get_image(camera);

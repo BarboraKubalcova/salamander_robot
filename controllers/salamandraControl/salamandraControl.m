@@ -10,7 +10,7 @@
 %desktop;
 %keyboard;
 
-TIME_STEP = 10;
+TIME_STEP = 32;
 
 
 % get and enable devices, e.g.:
@@ -51,25 +51,26 @@ while wb_robot_step(TIME_STEP) ~= -1
  
   if distance_left < 500 && distance_left < distance_right
      for i = 1:6
-       wb_motor_set_position(p(i), sin(-0.5));
+       wb_motor_set_position(p(i), sin(-0.2));
      end
      disp("L");
        wb_motor_set_velocity(motor_back, 3);
        wb_motor_set_velocity(motor_front, 3);
+       wb_robot_step(50 * TIME_STEP);
        
   elseif distance_right < 500 && distance_right < distance_left
      for i = 1:6
-       wb_motor_set_position(p(i), sin(0.5));
+       wb_motor_set_position(p(i), sin(0.2));
       end
       disp("R");
        wb_motor_set_velocity(motor_back, 3);
        wb_motor_set_velocity(motor_front, 3);
+       wb_robot_step(50 * TIME_STEP);
   else
       
       for i = 1:6
-       
-       wb_motor_set_position(p(i), sin(time-i)/2);
-      
+      wb_motor_set_position(p(i), sin(time-i)/2);
+         
       end
        wb_motor_set_velocity(motor_back, 1.5);
        wb_motor_set_velocity(motor_front, 1.5);

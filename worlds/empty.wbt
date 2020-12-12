@@ -4,8 +4,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.013562525296555052 0.9887117364292821 0.14921514720219936 2.5008487634501324
-  position 0.7652281500537406 0.4171634254975217 -1.0648490255616183
+  orientation -0.04664803608561162 -0.9922291414876652 -0.11534856527935916 2.911471903146517
+  position -1.32669537762172 1.924758417669402 -6.022960641680724
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -127,5 +127,30 @@ SimpleTree {
   translation -1.2 0 -0.5
   name "tree(1)"
   height 2
+  radius 1
+}
+Rock10cm {
+  translation -0.48 0.05 -0.7
+  rotation 0 1 0 2.094399693899575
+  name "rock 10 cm(1)"
+}
+Rock10cm {
+  translation -0.91 0.05 0.18
+  name "rock 10 cm(2)"
+}
+Rock10cm {
+  translation 0 0.05 0.81
+  name "rock 10 cm(3)"
+}
+Rock17cm {
+  translation -1.18 0 0.68
+  rotation 0 1 0 -1.0472003061004251
+  name "rock 17 cm(3)"
+}
+SimpleTree {
+  translation 1 0 -1
+  rotation 0 1 0 -0.6544996938995746
+  name "tree(2)"
+  height 1.5
   radius 1
 }
